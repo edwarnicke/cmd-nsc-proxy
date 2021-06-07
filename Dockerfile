@@ -24,4 +24,4 @@ CMD dlv -l :40000 --headless=true --api-version=2 test -test.v ./...
 FROM alpine as runtime
 COPY --from=build /bin/proxy-nsc /bin/proxy-nsc
 COPY --from=build /bin/dlv /bin/dlv
-CMD /bin/proxy-nsc
+ENTRYPOINT ["/bin/proxy-nsc"]
